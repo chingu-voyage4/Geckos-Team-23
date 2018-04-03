@@ -131,9 +131,20 @@ class App extends Component {
       this.handleNameChange = this.handleNameChange.bind(this);
 
       this.state = {
-         name: '',
-         keyIDX: 0,
-         tabCategory: []
+        name: '',
+        keyIDX: 0,
+        tabCategory: [
+          {key: 1, value: "React"},
+          {key: 2, value: "CSS"}
+        ],
+        tabPageLink: [
+        {
+          tabKey: 1,
+          categoryKey: 1,   
+          tabName: "React Tutorial", 
+          tabURL: "https://www.somedomain.com"
+        }
+        ]
       }
    }
 
