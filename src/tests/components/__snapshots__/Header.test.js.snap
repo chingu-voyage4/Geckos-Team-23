@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<div
+  className="header"
+  id="header"
+>
+  OneTab++
+  <ul
+    className="ul-no-bullet header-navigation"
+  >
+    <li>
+      <Link
+        replace={false}
+        to="/settings"
+      >
+        Settings
+      </Link>
+    </li>
+  </ul>
+</div>
+`;

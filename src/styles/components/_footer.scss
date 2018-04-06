@@ -1,0 +1,10 @@
+.grid-container > .footer { 
+    grid-area: footer; 
+    background: #190934;
+    color: $off-white;
+    font-size: $l-size;
+    font-style: italic;
+    margin-bottom: 0;
+    padding: $xs-size;
+    text-align: center;
+}

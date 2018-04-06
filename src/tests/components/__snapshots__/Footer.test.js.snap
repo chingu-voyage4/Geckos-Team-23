@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Footer correctly 1`] = `
+<div
+  className="footer"
+>
+  <a
+    href="https://medium.com/chingu"
+  >
+    Courtesy of Chingu Cohorts!
+  </a>
+</div>
+`;

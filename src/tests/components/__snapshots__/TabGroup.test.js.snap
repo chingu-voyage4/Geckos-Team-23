@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TabGroup list correctly 1`] = `
+<div
+  className="main"
+  id="tab-group"
+>
+  <ul>
+    <li
+      key="1"
+    >
+      <Link
+        replace={false}
+        to="https://www.somedomain.com"
+      >
+        My Favorite React Tutorial
+      </Link>
+    </li>
+    <li
+      key="2"
+    >
+      <Link
+        replace={false}
+        to="https://www.somedomain2.com"
+      >
+        My Second Favorite React Tutorial
+      </Link>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`should render TabGroup list with empty message 1`] = `
+<div
+  className="main"
+  id="tab-group"
+>
+  <p>
+    You haven't added any pages to 
+    hello
+     yet.
+  </p>
+</div>
+`;

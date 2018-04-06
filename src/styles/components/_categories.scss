@@ -1,0 +1,6 @@
+.grid-container > .categories {
+    grid-area: categories; 
+    background: lighten(#347B98, 10%);
+    color: $off-black;
+    padding: $xs-size $l-size;
+}
