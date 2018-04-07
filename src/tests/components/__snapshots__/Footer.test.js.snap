@@ -5,9 +5,9 @@ exports[`should render Footer correctly 1`] = `
   className="footer"
 >
   <a
-    href="https://medium.com/chingu"
+    href="https://chingu.io/"
   >
-    Courtesy of Chingu Cohorts!
+    Courtesy of Chingu Developers Network
   </a>
 </div>
 `;
