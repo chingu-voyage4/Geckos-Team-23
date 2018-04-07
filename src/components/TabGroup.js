@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
     const getTabGroup = ( category ) => {
-    //console.log("category: ", category);
     if (category === 'React') {
         return [
             {
@@ -43,9 +42,6 @@ import { Link } from 'react-router-dom';
 const TabGroup = ( { match } ) => {
     let category = match.params.categoryName; 
     let tabs = getTabGroup(category);
-    //console.log("match: ", category);
-    //console.log("calling getTabGroup: ", getTabGroup(category));
-    console.log("tabGroup: ", tabs);
     return(
         <div id="tab-group" className="main">
             {
