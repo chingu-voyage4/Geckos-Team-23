@@ -27,7 +27,6 @@ class OneTab extends Component {
         this.updateTabWindow = this.updateTabWindow.bind(this);
         this.updatePinnedTabs = this.updatePinnedTabs.bind(this);
         this.updateAutoStart = this.updateAutoStart.bind(this);
-        this.updateWarnDuplicate = this.updateWarnDuplicate.bind(this);
         this.initWelcome = this.initWelcome.bind(this);
         this.state = {
             showWelcome: true,
@@ -50,11 +49,9 @@ class OneTab extends Component {
             tabWindow: "currentWindow",
             pinnedTab: "noPinned",
             autoStart: "autoStartNo",
-            warnDuplicate: "noWarn",
             tabWindowChecked:"",
             pinnedTabChecked: "",
-            autoStartChecked: "",
-            warnDuplicateChecked: "",            
+            autoStartChecked: "",           
         }
     }
 
@@ -72,12 +69,6 @@ class OneTab extends Component {
         console.log("updateAutoStart: ", autoStart);
         this.setState({autoStart: autoStart, autoStartChecked: autoStart}, () => console.log(autoStart, this.state.autoStartChecked));
     }
-
-    updateWarnDuplicate = (warnDuplicate) => {
-        console.log("updatewarnDuplicate: ", warnDuplicate);
-        this.setState({warnDuplicate: warnDuplicate, warnDuplicateChecked: warnDuplicate}, () => console.log(warnDuplicate, this.state.warnDuplicateChecked));
-    }
-    
 
     handleSettingsSubmit = (e) => {
         e.preventDefault();
@@ -176,10 +167,6 @@ class OneTab extends Component {
                         updateAutoStart={this.updateAutoStart}
                         autoStart={this.state.autoStart}
                         autoStartChecked={this.state.autoStartChecked}
-
-                        updateWarnDuplicate={this.updateWarnDuplicate}
-                        warnDuplicate={this.state.warnDuplicate}
-                        warnDuplicateChecked={this.state.warnDuplicateChecked}
                     />}
                 />
                 <Footer />
