@@ -33,7 +33,6 @@ class Settings extends Component {
         }
     }
     render() {
-        console.log("before render: ", this.props.warnDuplicate, this.props.warnDuplicateChecked);
         return (
             <div id="settings" className="main ul-no-bullet">
                 <div id="openTabWindow">
