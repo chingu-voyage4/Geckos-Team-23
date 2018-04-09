@@ -8,7 +8,9 @@ exports[`should render Category list correctly 1`] = `
   <h3>
     Categories
   </h3>
-  <form>
+  <form
+    onSubmit={[Function]}
+  >
     <input
       name="newCategory"
       type="text"
@@ -19,6 +21,7 @@ exports[`should render Category list correctly 1`] = `
       New
     </button>
   </form>
+  <div />
   <ul
     className="ul-no-bullet"
   >
@@ -56,7 +59,9 @@ exports[`should render Category list with empty message 1`] = `
   <h3>
     Categories
   </h3>
-  <form>
+  <form
+    onSubmit={[Function]}
+  >
     <input
       name="newCategory"
       type="text"
@@ -67,12 +72,11 @@ exports[`should render Category list with empty message 1`] = `
       New
     </button>
   </form>
+  <div>
+    Please enter a name for your new category
+  </div>
   <ul
     className="ul-no-bullet"
-  >
-    <p>
-      Create your first Category
-    </p>
-  </ul>
+  />
 </div>
 `;
