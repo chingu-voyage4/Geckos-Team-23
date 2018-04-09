@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import Header from '../../components/Header';
+import Settings from '../../components/Settings';
 
-test('should render Header correctly', () => {
-  const wrapper = shallow(<Header />);
+test('should render Settings correctly', () => {
+  const wrapper = shallow(<Settings />);
   expect(toJSON(wrapper)).toMatchSnapshot();
- });
+});

@@ -1,0 +1,13 @@
+.grid-container > .main { 
+  grid-area: main; 
+  background: lighten(#D4EDF7, 5%);
+  color: $off-black; 
+  font-size: $l-size;
+  margin-bottom: 0;
+  padding: $xs-size $l-size;
+  text-align: left;
+}
+
+.grid-container > .tab-group > ul {
+  list-style-type:none;    
+}

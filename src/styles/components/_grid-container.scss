@@ -1,0 +1,19 @@
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header header header'
+      'categories main main main main main main main'
+      'footer footer footer footer footer footer footer footer';
+    grid-gap: 2;
+    background-color: #FFF;
+    padding: $s-size;
+  }
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    .grid-container > div {
+        font-size: $l-size;
+    }
+  }

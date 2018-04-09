@@ -1,0 +1,15 @@
+.grid-container > .header { 
+    grid-area: header; 
+    background: #FBA90A;
+    color: $off-black; 
+    font-size: $xl-size;
+    font-weight: bold;
+    margin-bottom: 0;
+    padding: $xs-size;
+    text-align: center;
+}
+
+.header-navigation {
+    font-size: $l-size;
+    font-weight: normal;
+}

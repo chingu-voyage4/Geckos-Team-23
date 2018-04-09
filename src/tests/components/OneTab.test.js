@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import Header from '../../components/Header';
+import OneTab from '../../components/OneTab';
 
-test('should render Header correctly', () => {
-  const wrapper = shallow(<Header />);
+test('should render OneTab correctly', () => {
+  const wrapper = shallow(<OneTab />);
   expect(toJSON(wrapper)).toMatchSnapshot();
- });
+});

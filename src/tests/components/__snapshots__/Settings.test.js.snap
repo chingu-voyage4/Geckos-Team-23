@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Settings correctly 1`] = `
+<div
+  className="main ul-no-bullet"
+  id="settings"
+>
+  <div
+    id="openTabWindow"
+  >
+    <form
+      id="openTabWindow"
+    >
+      <h4>
+        When opening tab(s), do so in: 
+      </h4>
+      <div>
+        <label>
+          <input
+            checked={false}
+            name="windowOptions"
+            onChange={[Function]}
+            type="radio"
+            value="currentWindow"
+          />
+           Current Window
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            checked={false}
+            name="windowOptions"
+            onChange={[Function]}
+            type="radio"
+            value="newWindow"
+          />
+           New Window
+        </label>
+      </div>
+    </form>
+  </div>
+  <div
+    id="pinnedTabs"
+  >
+    <form
+      id="pinnedTabs"
+    >
+      <h4>
+        Pinned tabs are: 
+      </h4>
+      <div>
+        <label>
+          <input
+            checked={false}
+            name="pinnedOptions"
+            onChange={[Function]}
+            type="radio"
+            value="noPinned"
+          />
+           Not saved
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            checked={false}
+            name="pinnedOptions"
+            onChange={[Function]}
+            type="radio"
+            value="yesPinned"
+          />
+           Will be saved
+        </label>
+      </div>
+    </form>
+  </div>
+  <div
+    id="autoStartup"
+  >
+    <form
+      id="autoStartup"
+    >
+      <h4>
+        Start OneTab++: 
+      </h4>
+      <div>
+        <label>
+          <input
+            checked={false}
+            name="pinnedOptions"
+            onChange={[Function]}
+            type="radio"
+            value="autoStartNo"
+          />
+           I will start it myself
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            checked={false}
+            name="autoOptions"
+            onChange={[Function]}
+            type="radio"
+            value="autoStart"
+          />
+           Start it when I open my browser
+        </label>
+      </div>
+    </form>
+  </div>
+  <div
+    id="warnDuplicate"
+  >
+    <form
+      id="warnDuplicate"
+    >
+      <h4>
+        OneTab will not save duplicate tab links within a category:
+      </h4>
+      <div>
+        <label>
+          <input
+            checked={false}
+            name="warnDuplicateOptions"
+            onChange={[Function]}
+            type="radio"
+            value="noWarn"
+          />
+           OK. I'll let you handle it.
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            checked={false}
+            name="warnDuplicateOptions"
+            onChange={[Function]}
+            type="radio"
+            value="yesWarn"
+          />
+           Please tell me if I have a duplicate tab
+        </label>
+      </div>
+      <div>
+        <button>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
