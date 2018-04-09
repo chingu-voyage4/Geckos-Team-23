@@ -2,21 +2,39 @@
 
 exports[`should render Header correctly 1`] = `
 <div
-  className="header"
+  className="header header-bar"
   id="header"
 >
-  OneTab++
-  <ul
-    className="ul-no-bullet header-navigation"
+  <div
+    className="header-brand"
   >
-    <li>
-      <Link
-        replace={false}
-        to="/settings"
+    OneTab++
+  </div>
+  <div>
+    <ul
+      className="ul-no-bullet"
+    >
+      <li
+        className="header-li"
       >
-        Settings
-      </Link>
-    </li>
-  </ul>
+        <Link
+          replace={false}
+          to="/home"
+        >
+          Home
+        </Link>
+      </li>
+      <li
+        className="header-li"
+      >
+        <Link
+          replace={false}
+          to="/settings"
+        >
+          Settings
+        </Link>
+      </li>
+    </ul>
+  </div>
 </div>
 `;

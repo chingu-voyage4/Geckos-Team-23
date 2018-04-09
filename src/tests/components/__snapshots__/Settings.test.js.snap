@@ -110,45 +110,10 @@ exports[`should render Settings correctly 1`] = `
       </div>
     </form>
   </div>
-  <div
-    id="warnDuplicate"
-  >
-    <form
-      id="warnDuplicate"
-    >
-      <h4>
-        OneTab will not save duplicate tab links within a category:
-      </h4>
-      <div>
-        <label>
-          <input
-            checked={false}
-            name="warnDuplicateOptions"
-            onChange={[Function]}
-            type="radio"
-            value="noWarn"
-          />
-           OK. I'll let you handle it.
-        </label>
-      </div>
-      <div>
-        <label>
-          <input
-            checked={false}
-            name="warnDuplicateOptions"
-            onChange={[Function]}
-            type="radio"
-            value="yesWarn"
-          />
-           Please tell me if I have a duplicate tab
-        </label>
-      </div>
-      <div>
-        <button>
-          Save
-        </button>
-      </div>
-    </form>
+  <div>
+    <button>
+      Save
+    </button>
   </div>
 </div>
 `;

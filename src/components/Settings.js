@@ -7,7 +7,6 @@ class Settings extends Component {
         this.updateTabWindow = this.updateTabWindow.bind(this);
         this.updatePinnedTabs = this.updatePinnedTabs.bind(this);
         this.updateAutoStart = this.updateAutoStart.bind(this);
-        this.updateWarnDuplicate = this.updateWarnDuplicate.bind(this);
     }
     updateTabWindow = (e) => {
         if (e.target.checked) {
@@ -27,13 +26,7 @@ class Settings extends Component {
         }
     }
 
-    updateWarnDuplicate = (e) => {
-        if (e.target.checked) {
-            this.props.updateWarnDuplicate(e.target.value)
-        }
-    }
     render() {
-        console.log("before render: ", this.props.warnDuplicate, this.props.warnDuplicateChecked);
         return (
             <div id="settings" className="main ul-no-bullet">
                 <div id="openTabWindow">
@@ -114,33 +107,8 @@ class Settings extends Component {
                     </form>
                 </div>
 
-                <div id="warnDuplicate">
-                    <form id="warnDuplicate">
-                        <h4>OneTab will not save duplicate tab links within a category:</h4>
-                        <div>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="warnDuplicateOptions"
-                                    value='noWarn'
-                                    checked={this.props.warnDuplicate === "noWarn"}
-                                    onChange={this.updateWarnDuplicate} /> OK. I'll let you handle it.
-                            </label>
-                        </div>
-                        <div>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="warnDuplicateOptions"
-                                    value='yesWarn'
-                                    checked={this.props.warnDuplicate === "yesWarn"}
-                                    onChange={this.updateWarnDuplicate} /> Please tell me if I have a duplicate tab
-                            </label>
-                        </div>
-                        <div>
+                <div>
                             <button onClick={this.props.handleSettingsSubmit}>Save</button>
-                        </div>
-                    </form>
                 </div>
 
             </div>
