@@ -20,7 +20,7 @@ const Content = () => (
 class OneTab extends Component {
     constructor(props) {
         super(props);
-        this.findDuplicateCategories = this.findDuplicateCategories.bind(this);
+
         this.handleNewCategory = this.handleNewCategory.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleSettingsSubmit = this.handleSettingsSubmit.bind(this);
@@ -29,7 +29,6 @@ class OneTab extends Component {
         this.updateAutoStart = this.updateAutoStart.bind(this);
         this.initWelcome = this.initWelcome.bind(this);
         this.state = {
-            showWelcome: true,
             name: '',
             tabCategory: [],
             tabPageLink: [
@@ -46,6 +45,7 @@ class OneTab extends Component {
                     tabURL: "https://www.somedomain.com"
                 }
             ],
+            showWelcome: true,
             tabWindow: "currentWindow",
             pinnedTab: "noPinned",
             autoStart: "autoStartNo",
@@ -74,42 +74,7 @@ class OneTab extends Component {
         e.preventDefault();
     }        
 
-    findDuplicateCategories = (categories, value) => {
-        // store flags
-        let foundDuplicate = false;
-        let i;
-        let lcCategory;
-        let lcValue;
-    
-        for (i=0; i<categories.length;i++) {
-            lcCategory = categories[i].categoryName.toLowerCase();
-            lcValue = value.toLowerCase();
-            if (lcCategory === lcValue)
-            {
-                foundDuplicate = true;
-                break;
-            }
-        }
-        return foundDuplicate;
-    }
-    
-
-    handleNewCategory = (e) => {
-        e.preventDefault(); // stop the whole page from re-rendering + adding data in URL
-  
-        let value = e.target.elements.newCategory.value;
- 
-        if(!value){ 
-            console.log('ERROR: All categories must be named - no blanks allowed');
-            return; 
-        } 
-
-        const categories = this.state.tabCategory;
-        let result = this.findDuplicateCategories(categories, value);
-        if(result  === true) {
-            console.log('ERROR: Duplicate category names are not allowed');
-            return; 
-        } 
+    handleNewCategory = (value) => {
         let keyIDX = uniqueID();
         console.log("keyIDX: ", keyIDX);
 
