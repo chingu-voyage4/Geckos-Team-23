@@ -7,12 +7,13 @@ class Categories extends Component {
 
     this.findDuplicateCategories = this.findDuplicateCategories.bind(this);
     this.handleNewCategory = this.handleNewCategory.bind(this);
-
+    this.messageDiv = this.messageDiv.bind(this);
+    this.displaySortArrows = this.displaySortArrows.bind(this);
     this.state={
       noError:0,
       noCategoryName:1,
       duplicateCategory:2,
-      error:-1,
+      error:0,
       errors: ["", "Please enter a name for your new category", "This category already exists"],
     }
   }
@@ -57,6 +58,35 @@ class Categories extends Component {
     this.props.handleNewCategory(value);
   }
 
+  messageDiv = () => {
+    let display;
+    let error = this.state.error;
+    console.log("messageDiv: ", this.state.error);
+
+    if(error){
+      display = this.state.errors[this.state.error];
+    }else {
+      if(this.props.newTabCategory.length === 0){
+        display = this.state.errors[this.state.noCategoryName];
+      } 
+    }
+
+    return(
+      display
+    );
+  }
+
+  displaySortArrows = () => {
+    let displayArrow;
+   
+    if (this.props.newTabCategory.length > 2) {
+      displayArrow = <i className="fas fa-sort"></i>;
+    } else {
+      displayArrow = "";
+    } 
+    return displayArrow;
+  }
+
   render(){
     return(
       <div id="categories" className="categories">
@@ -74,13 +104,12 @@ class Categories extends Component {
             New
           </button>
         </form>
-        <div>
-          {
-            this.props.newTabCategory.length === 0 
-              ? this.state.errors[this.state.noCategoryName] 
-              : this.state.errors[this.state.error]
-          }
+        <div className="div-msg">
+          {this.displaySortArrows()}
         </div>
+        <div>
+          {this.messageDiv()}
+        </div>  
         <ul className="ul-no-bullet">
         {
           this.props.newTabCategory.map((group) =>
