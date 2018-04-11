@@ -102,14 +102,6 @@ function readCategoryComplete(categoriesMainDataKey) {
 //**************************************************
 
 
-function addCategory(categoryId, categoryName, CategoriesMainDataKey) {
-	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
-	let category = new Category(categoryId, categoryName);
-	localStorage.push(category);
-	setCategoriesInStorage(CategoriesMainDataKey, localStorage);
-}
-
-
 
 
 //*****Update the Category ID number - requires a current Id# and the supply the new id#*****
@@ -200,8 +192,30 @@ function randomNumber() {
 }
 
 
-// let store = 
-// [  { id: 0, name: 'react' },
+
+let store = 
+[ { 
+	   id: 0,
+	   name: 'react', 
+	   tabs: [ 
+		   {
+			   tabKey: 0,
+			   tabName: "learn React syntax",
+			   tabURL: "htp://www.react.com",
+			   ParentCategoryId: 1
+		   },
+		   {
+			   tabKey: 1,
+			   tabName: "videos on syntax",
+			   tabURL: "htp://www.xyyys.com",
+			   ParentCategoryId: 1
+		   },
+	   ]
+   } 
+];
+
+
+
 //    { id: 1, name: 'javascript' },
 //    { id: 2, name: 'angular' },
 //    { id: 3, name: 'node' } ]
