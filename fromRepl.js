@@ -47,8 +47,8 @@ const retrievedCategoriesFromStorage = (categoriesMainDataKey) => {
 //function takes two arguments one for the local.storage key that will updated
 // and one for the modified array of objects - it will then stringify the
 //modified array value and send it back up to be set in local.storage.
-const setCategoriesInStorage = (CategoriesMainDataKey, modifiedArrayVariable) => {
-	localStorage.setItem( CategoriesMainDataKey, JSON.stringify(modifiedArrayVariable) )
+const setCategoriesInStorage = (categoriesMainDataKey, modifiedArrayVariable) => {
+	localStorage.setItem( categoriesMainDataKey, JSON.stringify(modifiedArrayVariable) )
 };
 
 
@@ -57,11 +57,11 @@ const setCategoriesInStorage = (CategoriesMainDataKey, modifiedArrayVariable) =>
 //******************CREATE**************************
 //**************************************************
 //function triggerred that will CREATE - a category in the array categories
-function addCategory(categoryId, categoryName, CategoriesMainDataKey) {
+function addCategory(categoryId, categoryName, categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	let category = new Category(categoryId, categoryName);
 	localStorage.push(category);
-	setCategoriesInStorage(CategoriesMainDataKey, localStorage);
+	setCategoriesInStorage(categoriesMainDataKey, localStorage);
 }
 
 //******************READ**************************
@@ -105,26 +105,26 @@ function readCategoryComplete(categoriesMainDataKey) {
 
 
 //*****Update the Category ID number - requires a current Id# and the supply the new id#*****
-function updateCategoryId(CurrentCategoryId, newCategoryId, CategoriesMainDataKey) {
+function updateCategoryId(CurrentCategoryId, newCategoryId, categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if( CurrentCategoryId === currentElement.id ) {
 			currentElement.id = newCategoryId;
 		}
 	});
-	setCategoriesInStorage(CategoriesMainDataKey, localStorage);
+	setCategoriesInStorage(categoriesMainDataKey, localStorage);
 	console.log(localStorage);
 }
 //*****Update the CategoryName number - requires a current Id# and supply of a new id#*****
 //ASSUMING that all names will be unique as well - just as id #'s'
-function updateCategoryName(CurrentCategoryName, newCategoryName, CategoriesMainDataKey) {
+function updateCategoryName(CurrentCategoryName, newCategoryName, categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if( CurrentCategoryName === currentElement.name ) {
 			currentElement.name = newCategoryName;
 		}
 	});
-	setCategoriesInStorage(CategoriesMainDataKey, localStorage);
+	setCategoriesInStorage(categoriesMainDataKey, localStorage);
 	console.log(localStorage);
 }
 
@@ -133,14 +133,14 @@ function updateCategoryName(CurrentCategoryName, newCategoryName, CategoriesMain
 //function trigerred that will DELETE - a category from the array body
 //requires the category id and categorname and the main key from which 
 //said person would want to remove the category from
-function deleteCategory(categoryId, categoryName, CategoriesMainDataKey) {
+function deleteCategory(categoryId, categoryName, categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if(categoryId === currentElement.id  || (categoryName === currentElement.name)) {
 			localStorage.splice(index, 1);//deletes itself
 		}
 	});
-	setCategoriesInStorage(CategoriesMainDataKey, localStorage);
+	setCategoriesInStorage(categoriesMainDataKey, localStorage);
 	console.log(localStorage, localStorage.length);
 }
 
