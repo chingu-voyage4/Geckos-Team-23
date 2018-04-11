@@ -1,4 +1,4 @@
-`use strict`;
+"use strict";
 
 //****NOTE NOTE function must be made to set the localStorage main key  - to a an Array EARLY*****
 // (function(categoriesMainDataKey) {
@@ -22,13 +22,6 @@ function Category(id, name) {
     this.id = id;
     this.name = name;
 }
-//Create the object constructor for tabs -- tabPArentCategoryId will be the id from Category.
-function Tab(tabKey, tabName, tabURL, tabParentCategoryId) {
-    this.tabKey = tabKey;
-    this.tabName = tabName;
-    this.tabURL = tabURL;
-    this.tabParentCategoryId = tabParentCategoryId;
-};
 
 //random number generator
 function randomNumber() {
@@ -53,8 +46,6 @@ const retrievedCategoriesFromStorage = (categoriesMainDataKey) => {
 const setCategoriesInStorage = (categoriesMainDataKey, modifiedArrayVariable) => {
 	localStorage.setItem( categoriesMainDataKey, JSON.stringify(modifiedArrayVariable) )
 };
-
-
 
 
 //******************CREATE**************************

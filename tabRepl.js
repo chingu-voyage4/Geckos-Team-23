@@ -1,15 +1,20 @@
+"use strict";
 
 
-// tabKey
-// or 
-// categoryKey
-
+//Create the object constructor for tabs
 function Tab(tabKey, tabName, tabURL, categoryKey) {
     this.tabKey = tabKey;
     this.tabName = tabName;
     this.tabURL = tabURL;
     this.categoryKey = categoryKey;
 };
+
+/**
+ * **** --- **** IMPORTANT IMPORTANT IMPORTANT **** --- ****
+ * tabsMainDataKey should be assigned the tabKey (The MAIN key for all tab values from local.storage)
+ */
+
+
 
 
 //function to retrieve the array of documents in local.storage- the argument to be
@@ -27,6 +32,8 @@ const retrievedTabsFromStorage = (tabsMainDataKey) => {
 const setTabsInStorage = (tabsMainDataKey, modifiedArrayVariable) => {
 	localStorage.setItem( tabsMainDataKey, JSON.stringify(modifiedArrayVariable) )
 };
+
+
 
 //******************CREATE**************************
 //**************************************************
@@ -81,6 +88,11 @@ function readTabComplete(tabsMainDataKey) {
 	return list;
     console.log(list);
 }
+
+
+
+
+
  //******************UPDATE**************************
  //******************UPDATE**************************
 
@@ -119,6 +131,10 @@ function updateTabURL(CurrentTabURL, newTabURL, tabsMainDataKey) {
 	setTabsInStorage ( tabsMainDataKey, localStorage );
 	console.log(localStorage);
 }
+
+
+
+
 //******************DELETE**************************
 //**************************************************
 //function trigerred that will DELETE - a certain tab from the array body
