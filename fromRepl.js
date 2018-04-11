@@ -30,7 +30,6 @@ function randomNumber() {
 }
 
 
-
 //function to retrieve the array of documents in local.storage- the argument to be
 //provided is the name of the mainkey that you wish to draw results from
 // It returns an array of objects that should be assigned to a handler(ie a variable);
@@ -48,15 +47,22 @@ const setCategoriesInStorage = (categoriesMainDataKey, modifiedArrayVariable) =>
 };
 
 
+
+
+
 //******************CREATE**************************
 //**************************************************
 //function triggerred that will CREATE - a category in the array categories
-function addCategory(categoryId, categoryName, categoriesMainDataKey) {
+export function addCategory(categoryId, categoryName, categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	let category = new Category(categoryId, categoryName);
 	localStorage.push(category);
 	setCategoriesInStorage(categoriesMainDataKey, localStorage);
 }
+
+
+
+
 
 //******************READ**************************
 //******************READ**************************
@@ -64,7 +70,7 @@ function addCategory(categoryId, categoryName, categoriesMainDataKey) {
 // 1. it will call down that main key value -(The array of objects and place in variable localStorage)
 // 2.  It will then map out and  return a list each of the documents in the main array's id's, names or entire contents
 
-function readCategoryName(categoriesMainDataKey) {
+export function readCategoryName(categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	let list = localStorage.map((currentElement, index) => {
 		return currentElement.name;
@@ -73,7 +79,7 @@ function readCategoryName(categoriesMainDataKey) {
 	console.log(list);
 }
 //function trigerred that will READ ALL category Id's- a categories from the array
-function readCategoryIds(categoriesMainDataKey) {
+export function readCategoryIds(categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	let list = localStorage.map((currentElement, index) => {
 		return currentElement.id;
@@ -82,7 +88,7 @@ function readCategoryIds(categoriesMainDataKey) {
 	console.log(list);
 }
 //function trigerred that will READ ALL CATEGORIES- a categories from the array
-function readCategoryComplete(categoriesMainDataKey) {
+export function readCategoryComplete(categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	let list = localStorage.map((currentElement, index) => {
 		return currentElement;
@@ -90,11 +96,17 @@ function readCategoryComplete(categoriesMainDataKey) {
 	return list;
 	console.log(list);
 }
+
+
+
+
+
+
 //******************UPDATE**************************
 //******************UPDATE**************************
 
 //*****Update the Category ID number - requires a current Id# and the supply the new id#*****
-function updateCategoryId(CurrentCategoryId, newCategoryId, categoriesMainDataKey) {
+export function updateCategoryId(CurrentCategoryId, newCategoryId, categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if( CurrentCategoryId === currentElement.id ) {
@@ -106,7 +118,7 @@ function updateCategoryId(CurrentCategoryId, newCategoryId, categoriesMainDataKe
 }
 //*****Update the CategoryName number - requires a current Id# and supply of a new id#*****
 //ASSUMING that all names will be unique as well - just as id #'s'
-function updateCategoryName(CurrentCategoryName, newCategoryName, categoriesMainDataKey) {
+export function updateCategoryName(CurrentCategoryName, newCategoryName, categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if( CurrentCategoryName === currentElement.name ) {
@@ -117,12 +129,15 @@ function updateCategoryName(CurrentCategoryName, newCategoryName, categoriesMain
 	console.log(localStorage);
 }
 
+
+
+
 //******************DELETE**************************
 //**************************************************
 //function trigerred that will DELETE - a category from the array body
 //requires the category id and categorname and the main key from which 
 //said person would want to remove the category from
-function deleteCategory(categoryId, categoryName, categoriesMainDataKey) {
+export function deleteCategory(categoryId, categoryName, categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if(categoryId === currentElement.id  || (categoryName === currentElement.name)) {
@@ -135,7 +150,7 @@ function deleteCategory(categoryId, categoryName, categoriesMainDataKey) {
 
 
 //random number generator
-function randomNumber() {
+export function randomNumber() {
     var x = Math.floor((Math.random() * 1000) + 1);
     return x;
 }

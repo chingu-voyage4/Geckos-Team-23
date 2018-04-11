@@ -16,7 +16,6 @@ function Tab(tabKey, tabName, tabURL, categoryKey) {
 
 
 
-
 //function to retrieve the array of documents in local.storage- the argument to be
 //provided is the name of the main key for tabs that you wish to draw results from
 // It returns an array of objects that should be assigned to a handler(ie a variable);
@@ -38,7 +37,7 @@ const setTabsInStorage = (tabsMainDataKey, modifiedArrayVariable) => {
 //******************CREATE**************************
 //**************************************************
 //function when triggerred that will CREATE - a new tab object  in the tabs array in the tabKey
-function addTab(tabKey, tabName, tabURL, tabsMainDataKey) {
+export function addTab(tabKey, tabName, tabURL, tabsMainDataKey) {
 	let localStorage = retrievedTabsFromStorage(tabsMainDataKey);
 	let tab = new Tab(tabKey, tabName, tabURL, tabsMainDataKey);
 	localStorage.push(tab);
@@ -53,7 +52,7 @@ function addTab(tabKey, tabName, tabURL, tabsMainDataKey) {
 //functions triggered that will rquire the tab main data key (i.e tabKey )where in the function is called tabsMainDataKey
 // 1. it will call down that main tab key value -(The array of objects and place the array in a variable localStorage)
 // 2.  It will then map out and  return a list of each of the documents in the tab main array: the ,tabKey/id, tabName, tabURL, tabsMainDataKey
-function readTabName(tabsMainDataKey) {
+export function readTabName(tabsMainDataKey) {
 	let localStorage = retrievedTabsFromStorage(tabsMainDataKey);
 	let list = localStorage.map((currentElement, index) => {
 		return currentElement.tabName;
@@ -62,7 +61,7 @@ function readTabName(tabsMainDataKey) {
 	console.log(list);
 }
 //function when trigerred that will READ ALL tab's Id's-
-function readTabKeys(tabsMainDataKey) {
+export function readTabKeys(tabsMainDataKey) {
 	let localStorage = retrievedTabsFromStorage(tabsMainDataKey);
 	let list = localStorage.map((currentElement, index) => {
 		return currentElement.tabKey;
@@ -70,8 +69,8 @@ function readTabKeys(tabsMainDataKey) {
 	return list;
 	console.log(list);
 }
-//function when trigerred that will READ ALL URLs from the tabs array
-function readTabURLs(tabsMainDataKey) {
+//function when trigerred that will READ ALL tab URLs from the tabs array
+export function readTabURLs(tabsMainDataKey) {
 	let localStorage = retrievedTabsFromStorage(tabsMainDataKey);
 	let list = localStorage.map((currentElement, index) => {
 		return currentElement.tabURL;
@@ -79,8 +78,8 @@ function readTabURLs(tabsMainDataKey) {
 	return list;
 	console.log(list);
 }
-//function trigerred that will READ ALL TABS- all tabs that exist as objects in the array
-function readTabComplete(tabsMainDataKey) {
+//function trigerred that will READ ALL TABS properties - all tabs that exist as objects in the array
+export function readTabComplete(tabsMainDataKey) {
 	let localStorage = retrievedTabsFromStorage(tabsMainDataKey);
 	let list = localStorage.map((currentElement, index) => {
 		return currentElement;
@@ -97,7 +96,7 @@ function readTabComplete(tabsMainDataKey) {
  //******************UPDATE**************************
 
 //*****Update the tab id/key by supplying the current id/key you wish to change and the new id/key and tabKey*****
-function updateTabKey(CurrentTabKey, newTabKey, tabsMainDataKey) {
+export function updateTabKey(CurrentTabKey, newTabKey, tabsMainDataKey) {
 	let localStorage = retrievedTabsFromStorage(tabsMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if( CurrentTabKey === currentElement.tabKey ) {
@@ -109,7 +108,7 @@ function updateTabKey(CurrentTabKey, newTabKey, tabsMainDataKey) {
 }
 //*****Update the tab name by supplying the current name you wish to change the new name and tabKey*****
 
-function updateTabName(CurrentTabName, newTabName, tabsMainDataKey) {
+export function updateTabName(CurrentTabName, newTabName, tabsMainDataKey) {
 	let localStorage = retrievedTabsFromStorage(tabsMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if( CurrentTabName === currentElement.tabName ) {
@@ -121,7 +120,7 @@ function updateTabName(CurrentTabName, newTabName, tabsMainDataKey) {
 }
 //*****Update the tab URL by supplying the current URL you wish to change  and the new URL and tabKey*****
 
-function updateTabURL(CurrentTabURL, newTabURL, tabsMainDataKey) {
+export function updateTabURL(CurrentTabURL, newTabURL, tabsMainDataKey) {
 	let localStorage = retrievedTabsFromStorage(tabsMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if( CurrentTabURL === currentElement.tabURL ) {
@@ -141,7 +140,7 @@ function updateTabURL(CurrentTabURL, newTabURL, tabsMainDataKey) {
 //based on either the tab id or the tab name
 //requires the tabKey and/or tabName and the main key of the tab (tabKey) from which 
 //said person would want to remove the category from
-function deleteTab(tabKey, tabName, tabsMainDataKey) {
+export function deleteTab(tabKey, tabName, tabsMainDataKey) {
 	let localStorage = retrievedTabsFromStorage(tabsMainDataKey);
 	localStorage.forEach((currentElement, index) => {
 		if(tabKey === currentElement.tabKey  || (tabName === currentElement.tabName)) {
