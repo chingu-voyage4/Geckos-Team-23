@@ -1,17 +1,14 @@
 `use strict`;
 
 //****NOTE NOTE function must be made to set the localStorage main key  - to a an Array EARLY*****
+// (function(categoriesMainDataKey) {
+//     if ( Object.keys(localStorage).indexOf(categoriesMainDataKey ) === -1 ) {
+//         localStorage.setItem(categoriesMainDataKey, '[]');  
+//     }
+// })();
+//****NOTE NOTE function must be made to set the localStorage main key  - to a an Array EARLY*****
 
 
-(function(categoriesMainDataKey) {
-    if ( Object.keys(localStorage).indexOf(categoriesMainDataKey ) === -1 ) {
-        localStorage.setItem(categoriesMainDataKey, '[]');  
-    }
-})();
-
-
-
-//******************HELPER CONSTRUCTS*************************
 //******************HELPER CONSTRUCTS*************************
 //******************HELPER CONSTRUCTS*************************
 
@@ -32,6 +29,12 @@ function Tab(tabKey, tabName, tabURL, tabParentCategoryId) {
     this.tabURL = tabURL;
     this.tabParentCategoryId = tabParentCategoryId;
 };
+
+//random number generator
+function randomNumber() {
+    var x = Math.floor((Math.random() * 1000) + 1);
+    return x;
+}
 
 
 
@@ -65,8 +68,7 @@ function addCategory(categoryId, categoryName, categoriesMainDataKey) {
 }
 
 //******************READ**************************
- //******************READ**************************
-//**************************************************
+//******************READ**************************
 //functions triggered that will rquire the main data key
 // 1. it will call down that main key value -(The array of objects and place in variable localStorage)
 // 2.  It will then map out and  return a list each of the documents in the main array's id's, names or entire contents
@@ -98,11 +100,7 @@ function readCategoryComplete(categoriesMainDataKey) {
 	console.log(list);
 }
 //******************UPDATE**************************
- //******************UPDATE**************************
-//**************************************************
-
-
-
+//******************UPDATE**************************
 
 //*****Update the Category ID number - requires a current Id# and the supply the new id#*****
 function updateCategoryId(CurrentCategoryId, newCategoryId, categoriesMainDataKey) {
@@ -145,46 +143,6 @@ function deleteCategory(categoryId, categoryName, categoriesMainDataKey) {
 }
 
 
-
-
-
-
-
-/**
- * Lets run the app below testApp says howmany instances do you want to create
-*/
-
-// const testApp = (howMany = 4) => {
-//     for (let i = 0;i < howMany; i++) {
-//       addCategory(i, "react");
-//     }
-//       console.log(categories, categories.length);
-    
-//   };
-  
-// (() => {
-// 	testApp(2);
-// 	updateCategoryId(1,25);
-//	updateCategoryName('react', 'chicken')
-//	deleteCategory(2);
-//	readCategoryName()
-//	readCategoryIds();
-//	readCategoryComplete();
-// })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //random number generator
 function randomNumber() {
     var x = Math.floor((Math.random() * 1000) + 1);
@@ -193,29 +151,9 @@ function randomNumber() {
 
 
 
-let store = 
-[ { 
-	   id: 0,
-	   name: 'react', 
-	   tabs: [ 
-		   {
-			   tabKey: 0,
-			   tabName: "learn React syntax",
-			   tabURL: "htp://www.react.com",
-			   ParentCategoryId: 1
-		   },
-		   {
-			   tabKey: 1,
-			   tabName: "videos on syntax",
-			   tabURL: "htp://www.xyyys.com",
-			   ParentCategoryId: 1
-		   },
-	   ]
-   } 
-];
 
 
-
+// EXAMPLE CODE
 //    { id: 1, name: 'javascript' },
 //    { id: 2, name: 'angular' },
 //    { id: 3, name: 'node' } ]
@@ -225,6 +163,28 @@ let store =
 
 
 
+
+
+// let store = 
+// [ { 
+// 	   id: 0,
+// 	   name: 'react', 
+// 	   tabs: [ 
+// 		   {
+// 			   tabKey: 0,
+// 			   tabName: "learn React syntax",
+// 			   tabURL: "htp://www.react.com",
+// 			   ParentCategoryId: 1
+// 		   },
+// 		   {
+// 			   tabKey: 1,
+// 			   tabName: "videos on syntax",
+// 			   tabURL: "htp://www.xyyys.com",
+// 			   ParentCategoryId: 1
+// 		   },
+// 	   ]
+//    } 
+// ];
 
 
    // const setStorageLocal = (categories) => {
@@ -244,9 +204,6 @@ let store =
 //     var catName = document.getElementById("myText").value;
 //     addCategory(randomIdNumber, catName);
 // }
-
-
-
 
 
 
