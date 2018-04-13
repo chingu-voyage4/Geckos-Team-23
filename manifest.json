@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Onetab++",
+  "version": "0.7.0",
+  "description": "Onetab++",
+  "icons": {
+    "16": "Chingu-small.png",
+    "128": "Chingu.png"
+  },
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Onetab++"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "unlimitedStorage",
+    "contextMenus"
+  ]
+}
