@@ -1,11 +1,16 @@
 // Colors
 $default: #FFF;
 $off-black: #20222b;
-$dark-blue: #333745;
+$off-white: #eff3f5;
+$purple: #34136c;
+
 $blue: #3c4251;
+$dark-blue: #333745;
 $light-blue: #464b5e;
-$off-white: #a5afd7;
-$purple: #8357c5;
+
+$blue-green: #347B98;
+$light-blue-green: #3b8bab;
+$pale-blue-green: #D4EDF7;
 
 // Spacing
 $xs-size: .9rem;
@@ -13,4 +18,8 @@ $s-size: 1.2rem;
 $m-size: 1.3rem;
 $l-size: 1.8rem;
 $xl-size: 4.8rem;
+$li-size: .3rem;
 $desktop-breakpoint: 45rem;
+
+// Hover
+$hover-color: #e29803;
