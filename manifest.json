@@ -1,15 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "Onetab++",
+  "name": "Chingu MasterTab",
   "version": "0.7.0",
-  "description": "Onetab++",
+  "description": "Chingu MasterTab",
   "icons": {
     "16": "Chingu-small.png",
     "128": "Chingu.png"
   },
   "browser_action": {
     "default_popup": "index.html",
-    "default_title": "Onetab++"
+    "default_title": "MasterTab"
   },
   "background": {
     "scripts": [
