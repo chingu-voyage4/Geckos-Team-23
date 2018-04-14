@@ -1,8 +1,3 @@
-// 1. Add New Tab Link - create middleware function to send info from react to ls 
-// 1b. Add All tab links
-// 2. Update tabName Name - update tabName. Pass in categoryKey
-// 3. Read - retrieve category links from ls. Pass in categoryKey
-
 function generateRandomKey() {
   return '_' + Math.random().toString(36).substr(2, 9);
 };
@@ -19,6 +14,7 @@ function getTabUrl() {
     //const categoryKey;
     console.log(tabName + " - " + tabURL);
     console.log(tabKey);
+    //export addNewTab(tabKey, categoryKey, tabName, tabURL);
   });
 }
 
@@ -32,6 +28,7 @@ function getAllOpenWindows() {
         //const categoryKey;
         console.log(tabName + " - " + tabURL);
         console.log(tabKey);
+        //export addNewTab(tabKey, categoryKey, tabName, tabURL);
       });
     });
   });
@@ -52,4 +49,6 @@ let saveAllTabs = chrome.contextMenus.create({
   parentId: parent,
   onclick: getAllOpenWindows
 });
+
+
 
