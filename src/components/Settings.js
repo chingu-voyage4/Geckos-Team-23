@@ -31,7 +31,7 @@ class Settings extends Component {
       <div id="settings" className="main">
         <div id="openTabWindow">
           <form id="openTabWindow">
-            <h4 className="settings-option">When opening tab(s), do so in: {this.props.tabWindow}</h4>
+            <h4 className="settings-option">When opening tab(s), do so in:</h4>
             <div>
               <label className="settings-input">
                   <input

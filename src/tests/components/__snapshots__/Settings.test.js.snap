@@ -14,7 +14,7 @@ exports[`should render Settings correctly 1`] = `
       <h4
         className="settings-option"
       >
-        When opening tab(s), do so in: 
+        When opening tab(s), do so in:
       </h4>
       <div>
         <label
