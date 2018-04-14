@@ -8,7 +8,7 @@ exports[`should render Header correctly 1`] = `
   <div
     className="header-brand"
   >
-    OneTab++
+    Chingu Tab
   </div>
   <div>
     <ul
@@ -18,8 +18,9 @@ exports[`should render Header correctly 1`] = `
         className="header-li"
       >
         <Link
+          className="header-link"
           replace={false}
-          to="/home"
+          to="/"
         >
           Home
         </Link>
@@ -28,10 +29,22 @@ exports[`should render Header correctly 1`] = `
         className="header-li"
       >
         <Link
+          className="header-link"
           replace={false}
           to="/settings"
         >
           Settings
+        </Link>
+      </li>
+      <li
+        className="header-li"
+      >
+        <Link
+          className="header-link"
+          replace={false}
+          to="/about"
+        >
+          About
         </Link>
       </li>
     </ul>
