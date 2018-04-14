@@ -2,7 +2,7 @@
 
 exports[`should render Settings correctly 1`] = `
 <div
-  className="main ul-no-bullet"
+  className="main"
   id="settings"
 >
   <div
@@ -11,11 +11,15 @@ exports[`should render Settings correctly 1`] = `
     <form
       id="openTabWindow"
     >
-      <h4>
+      <h4
+        className="settings-option"
+      >
         When opening tab(s), do so in: 
       </h4>
       <div>
-        <label>
+        <label
+          className="settings-input"
+        >
           <input
             checked={false}
             name="windowOptions"
@@ -27,7 +31,9 @@ exports[`should render Settings correctly 1`] = `
         </label>
       </div>
       <div>
-        <label>
+        <label
+          className="settings-input"
+        >
           <input
             checked={false}
             name="windowOptions"
@@ -46,11 +52,15 @@ exports[`should render Settings correctly 1`] = `
     <form
       id="pinnedTabs"
     >
-      <h4>
+      <h4
+        className="settings-option"
+      >
         Pinned tabs are: 
       </h4>
       <div>
-        <label>
+        <label
+          className="settings-input"
+        >
           <input
             checked={false}
             name="pinnedOptions"
@@ -62,7 +72,9 @@ exports[`should render Settings correctly 1`] = `
         </label>
       </div>
       <div>
-        <label>
+        <label
+          className="settings-input"
+        >
           <input
             checked={false}
             name="pinnedOptions"
@@ -81,11 +93,15 @@ exports[`should render Settings correctly 1`] = `
     <form
       id="autoStartup"
     >
-      <h4>
+      <h4
+        className="settings-option"
+      >
         Start OneTab++: 
       </h4>
       <div>
-        <label>
+        <label
+          className="settings-input"
+        >
           <input
             checked={false}
             name="pinnedOptions"
@@ -97,7 +113,9 @@ exports[`should render Settings correctly 1`] = `
         </label>
       </div>
       <div>
-        <label>
+        <label
+          className="settings-input"
+        >
           <input
             checked={false}
             name="autoOptions"
@@ -110,10 +128,18 @@ exports[`should render Settings correctly 1`] = `
       </div>
     </form>
   </div>
-  <div>
-    <button>
-      Save
-    </button>
+  <div
+    className="settings-div"
+  >
+    <div
+      className="btn-group  btn-center"
+    >
+      <button
+        className="button settings-btn"
+      >
+        Save
+      </button>
+    </div>
   </div>
 </div>
 `;
