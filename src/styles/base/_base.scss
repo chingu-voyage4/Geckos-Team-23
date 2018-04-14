@@ -1,25 +1,65 @@
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    background: #fafafa;
-    font-family: 'Poppins', sans-serif;
-    font-size: $m-size;
+  background: #fafafa;
+  font-family: 'Poppins', sans-serif;
+  font-size: $m-size;
 }
 
 div {
-    border: none;
+  border: none;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 button:disabled {
-    cursor: default;
+  cursor: default;
+}
+
+.delete-icon {
+  border: none;
+  margin: $li-size;
+  padding: $li-size;
+}
+
+li {
+  border: none;
+  margin: $li-size;
+  padding: $li-size;
+}
+
+.clear {
+  clear:both;
+}
+
+.link{
+  border: none;
+  color: $off-black;
+  margin: $xs-size;
+  padding: $xs-size;
+  text-decoration: none;
+}
+
+.link:hover{
+  color: $hover-color;
+  text-decoration: none;
+}
+
+.ol-decimal {
+  list-style-type: decimal;
+  list-style-position: outside;
 }
 
 .ul-no-bullet {
-    list-style-type:none;    
+  border: red;
+  list-style-type:none;    
+}
+
+.ul-bullet {
+  list-style-type:disc;    
+  margin: 0;
 }

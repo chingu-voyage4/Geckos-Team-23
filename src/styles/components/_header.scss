@@ -29,10 +29,27 @@
 
 .header-li{
     display: block;
-    color: white;
+    color: $off-black;
     text-align: center;
     padding: 16px;
     text-decoration: none;
     float: left;
+    border: none;
 }
 
+.header-li:hover {
+    color: black;
+}
+
+.header-link{
+    border: none;
+    color: $off-black;
+    margin: $xs-size;
+    padding: $xs-size;
+    text-decoration: none;
+  }
+  
+  .header-link:hover{
+    color: black;
+    text-decoration: underline;
+  }
