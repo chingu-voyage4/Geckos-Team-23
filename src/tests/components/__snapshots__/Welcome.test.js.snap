@@ -6,30 +6,24 @@ exports[`should render Welcome correctly 1`] = `
   id="welcome"
 >
   <h1>
-    Welcome to OneTab ++!
+    Welcome to Chingu Tab!
   </h1>
   <p>
-    OneTab++ will help you organize your favorite pages into categories for easy access.
+    Chingu Tab will help you organize your favorite pages into categories for easy access.
   </p>
-  <ul
-    className="welcome-list"
+  <ol
+    className="ol-decimal"
   >
     <li>
-      <p>
-        First you'll need to create a category to group your pages
-      </p>
+      First you'll need to create a category to group your pages
     </li>
     <li>
-      <p>
-        You can have as many categories as you'd like, but every page must belong to a category
-      </p>
+      You can have as many categories as you'd like, but every page must belong to a category
     </li>
     <li>
-      <p>
-        When you visit a web page you'd like to add, right-click and add it to a category
-      </p>
+      When you visit a web page you'd like to add, right-click and add it to a category
     </li>
-  </ul>
+  </ol>
   <p>
     You can customize your experience from the Settings menu.
   </p>
