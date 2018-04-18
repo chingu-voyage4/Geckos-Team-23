@@ -6,7 +6,7 @@ exports[`should render About correctly 1`] = `
   id="about"
 >
   <h1>
-    Chingu Tab version 1.0
+    Chingu MasterTab version 1.0
   </h1>
   <p>
     This project began when three people decided to level up their coding skills and join the
