@@ -9,8 +9,8 @@ class Categories extends Component {
     this.findDuplicateCategories = this.findDuplicateCategories.bind(this);
     this.handleNewCategory = this.handleNewCategory.bind(this);
     this.messageDiv = this.messageDiv.bind(this);
-    this.sortCategories = this.sortCategories.bind(this);
     this.deleteCategory = this.deleteCategory.bind(this);
+    this.deleteTabGroup = this.deleteTabGroup.bind(this);
 
     this.state = {
       noError: 0,
@@ -27,7 +27,6 @@ class Categories extends Component {
     let i;
     let lcCategory;
     let lcValue;
-    console.log("findDuplicateCategories: ", categories);
     for (i = 0; i < categories.length; i++) {
       lcCategory = categories[i].categoryName.toLowerCase();
       lcValue = value.toLowerCase();
@@ -43,7 +42,6 @@ class Categories extends Component {
     e.preventDefault();
 
     let value = e.target.elements.newCategory.value;
-//    console.log("handleNewCategory - value 1: ", value);
 
     if(!value){ 
       this.setState({error:this.state.noCategoryName}, console.log("no Category name"));
@@ -52,7 +50,6 @@ class Categories extends Component {
 
     const categories = this.props.newTabCategory;
     let result = this.findDuplicateCategories(categories, value);
-//    console.log("findDuplicateCategories: result: ", result);
     if (result === true) {
       this.setState({ error: this.state.duplicateCategory }, console.log("duplicate Category name"));
       return;
@@ -82,32 +79,24 @@ class Categories extends Component {
 
   reset = (e) => {
     e.preventDefault;
-//    e.target.reset();
     this.setState({error: 0}, console.log(this.state));
   }
-
-  sortCategories = () => (
-    // placeholder for Middleware function:
-    console.log("sortCategories")
-  );
 
   deleteCategory = (e) => {
     e.preventDefault;
     let id = e.target.id;
     let name = e.target.name;
-    console.log("target: ", e.target);
-    console.log("id: ", id);
-    console.log("name: ", name);
-//    // placeholder for Middleware function:
-//    console.log("deleteCategory - this will also delete all the tabs!")
     if(confirm("Deleting a Category will delete all of the links you've saved.  Continue?")) {
       this.props.deleteCategory(id, name);
     }else {console.log("WHEW!");}
   };
 
+  deleteTabGroup = () => {
+    console.log("this.deleteTabGroup");
+  }
+
   render() {
     let tabCategory = this.props.newTabCategory;
-//    console.log("render: ", tabCategory);
     return (
       <div id="categories" className="categories">
         <div className="row">
@@ -130,14 +119,7 @@ class Categories extends Component {
 
 
           <div className="row cat-header cat-center">
-            <span 
-              id='clickableSortArrow' 
-              onClick={this.sortCategories} 
-              className="sort-icon">
-                <i className="fas fa-sort"></i>
-              </span>
               <span>Categories</span>
-              
           </div>
 
         </div>
