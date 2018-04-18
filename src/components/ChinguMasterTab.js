@@ -4,7 +4,6 @@ import About from './About';
 import Categories from './Categories';
 import Footer from './Footer';
 import Header from './Header';
-import Settings from './Settings';
 import TabGroup from './TabGroup';
 import Welcome from './Welcome';
 import uniqueID from '../genID';
@@ -23,7 +22,7 @@ class ChinguMasterTab extends Component {
     this.updateTabWindow = this.updateTabWindow.bind(this);
     this.updatePinnedTabs = this.updatePinnedTabs.bind(this);
     this.updateAutoStart = this.updateAutoStart.bind(this);
-    this.handleSettingsSubmit = this.handleSettingsSubmit.bind(this);
+//    this.handleSettingsSubmit = this.handleSettingsSubmit.bind(this);
     this.getTabGroup = this.getTabGroup.bind(this);
     
 
@@ -39,36 +38,17 @@ class ChinguMasterTab extends Component {
 
   componentWillMount() {
     // set defaults
-    let tabWindow = "currentWindow";
-    let pinnedTab = "noPinned";
-    let autoStart = "autoStartNo"; 
-
     let categories = mw.retrieveCategories();
     if(categories === null ) {
       categories = [];
     }
 
-    let settings = mw.getSettings();
-//    console.log("cWM: settings", settings);
-    if(settings !==null){
-      tabWindow = settings.tabWindow;
-      pinnedTab = settings.pinnedTab;
-      autoStart = settings.autoStart;
-    }
     this.setState(() => {
       return {
         tabCategory: categories,
-        tabWindow: tabWindow,
-        pinnedTab: pinnedTab,
-        autoStart: autoStart
       };
     }, console.log("cWM - this.state: ", this.state));
 
-//    let currentCategory = mw.retrieveOneCategoryByName("hello");
-//    console.log("cWM - currentCategory: ", currentCategory);
-//    console.log("cWM - CALLING getTabUrl - will return undefined: ", mw.getTabUrl(currentCategory));
-//    console.log(mw.retrieveOneCategoryByName("hello"));
-//    console.log(mw.retrieveOneCategoryByKey("p8rzv68e"));
     console.log("cWM - CALLING getAllOpenWindows - will return undefined: ", mw.getAllOpenWindows());
   }  
 
