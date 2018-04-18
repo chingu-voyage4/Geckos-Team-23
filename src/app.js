@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import OneTab from './components/OneTab';
+import ChinguMasterTab from './components/ChinguMasterTab';
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 
 ReactDOM.render((
   <BrowserRouter>
-    <OneTab />
+    <ChinguMasterTab />
   </BrowserRouter>
 ), document.getElementById('app'));
