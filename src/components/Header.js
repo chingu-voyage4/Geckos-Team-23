@@ -3,14 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Header = () => (
   <div id="header" className="header header-bar">
-    <div className="header-brand">Chingu Tab</div>
+    <div className="header-brand">Chingu Master Tab</div>
       <div>
         <ul className="ul-no-bullet">
           <li className="header-li">
             <Link to={`/`} className="header-link">Home</Link>
-          </li>
-          <li className="header-li">
-            <Link to={`/settings`} className="header-link">Settings</Link>
           </li>
           <li className="header-li">
             <Link to={`/about`} className="header-link">About</Link>
