@@ -18,33 +18,35 @@
 
 
 //Create the object constructor for category
-function Category(id, name) {
+function Category(id, name, date) {
     this.id = id;
-    this.name = name;
+		this.name = name;
+		this.date = date;
 }
 
 //random number generator
-function randomNumber() {
-    var x = Math.floor((Math.random() * 1000) + 1);
-    return x;
-}
+//function randomNumber() {
+//    var x = Math.floor((Math.random() * 1000) + 1);
+//    return x;
+//}
 
 
 //function to retrieve the array of documents in local.storage- the argument to be
 //provided is the name of the mainkey that you wish to draw results from
 // It returns an array of objects that should be assigned to a handler(ie a variable);
-const retrievedCategoriesFromStorage = (categoriesMainDataKey) => {
+export const retrievedCategoriesFromStorage =(categoriesMainDataKey)  => {
 	let allRetrievedCategories = JSON.parse(localStorage.getItem( categoriesMainDataKey ));
+//	console.log("retrievedCategoriesFromStorage: ",allRetrievedCategories);
     return allRetrievedCategories;
     //should be an array of objects - which the functions expect
-};
+}
 
 //function takes two arguments one for the local.storage key that will updated
 // and one for the modified array of objects - it will then stringify the
 //modified array value and send it back up to be set in local.storage.
 const setCategoriesInStorage = (categoriesMainDataKey, modifiedArrayVariable) => {
-	localStorage.setItem( categoriesMainDataKey, JSON.stringify(modifiedArrayVariable) )
-};
+	localStorage.setItem( categoriesMainDataKey, JSON.stringify(modifiedArrayVariable) );
+}
 
 
 
@@ -53,9 +55,13 @@ const setCategoriesInStorage = (categoriesMainDataKey, modifiedArrayVariable) =>
 //******************CREATE**************************
 //**************************************************
 //function triggerred that will CREATE - a category in the array categories
-export function addCategory(categoryId, categoryName, categoriesMainDataKey) {
+
+export function addCategory(categoryId, categoryName, categoryDate, categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
-	let category = new Category(categoryId, categoryName);
+	if( localStorage === null ){
+		localStorage = [];
+	}
+	let category = new Category(categoryId, categoryName, categoryDate);
 	localStorage.push(category);
 	setCategoriesInStorage(categoriesMainDataKey, localStorage);
 }
@@ -69,32 +75,58 @@ export function addCategory(categoryId, categoryName, categoriesMainDataKey) {
 //functions triggered that will rquire the main data key
 // 1. it will call down that main key value -(The array of objects and place in variable localStorage)
 // 2.  It will then map out and  return a list each of the documents in the main array's id's, names or entire contents
-
-export function readCategoryName(categoriesMainDataKey) {
+export const retrieveOneCategory = (categoryID, categoriesMainDataKey) => {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
+	if(localStorage === null){
+		return [];
+	}
+	console.log(localStorage);
+	let list = localStorage.filter((currentElement, index) => {
+		currentElement.id === categoryID;
+	});
+	console.log(list);
+
+}
+
+export function readCategoryNames(categoriesMainDataKey) {
+	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
+	if(localStorage === null){
+		return [];
+	}
+	console.log("lsc.readCategoryNames - localStorage: ", localStorage)
 	let list = localStorage.map((currentElement, index) => {
+		console.log("currentElement: ", currentElement, currentElement.name);
 		return currentElement.name;
 	});
-	return list;
 	console.log(list);
+	return list;
+
 }
 //function trigerred that will READ ALL category Id's- a categories from the array
 export function readCategoryIds(categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
+	if(localStorage === null){
+		return [];
+	}
 	let list = localStorage.map((currentElement, index) => {
 		return currentElement.id;
 	});
-	return list;
 	console.log(list);
+	return list;
 }
 //function trigerred that will READ ALL CATEGORIES- a categories from the array
 export function readCategoryComplete(categoriesMainDataKey) {
 	let localStorage = retrievedCategoriesFromStorage(categoriesMainDataKey);
-	let list = localStorage.map((currentElement, index) => {
-		return currentElement;
-	});
-	return list;
-	console.log(list);
+	if(localStorage === null){
+		localStorage = [];
+	}
+//	console.log("readCategoryComplete", localStorage);
+	return localStorage;
+//	let list = localStorage.map((currentElement, index) => {
+//		currentElement;
+//	});
+//	console.log("readCategoryComplete", list);
+//	return list;
 }
 
 
@@ -145,7 +177,7 @@ export function deleteCategory(categoryId, categoryName, categoriesMainDataKey) 
 		}
 	});
 	setCategoriesInStorage(categoriesMainDataKey, localStorage);
-	console.log(localStorage, localStorage.length);
+//	console.log(localStorage, localStorage.length);
 }
 
 
@@ -155,67 +187,26 @@ export function randomNumber() {
     return x;
 }
 
+//****************** React state.settings *************************
+//****************** React state.settings *************************
+export const getSettings = () => {
+	let settingsObj = localStorage.getItem('settings');
+	if (settingsObj){
+		return JSON.parse(settingsObj);
+	} else
+	{ 
+		return settingsObj = null; 
+	}
+}
 
+export const setSettings = (tabWindow, pinnedTab, autoStart) => {
+	let settings = {};
+	settings.tabWindow = tabWindow;
+	settings.pinnedTab = pinnedTab;
+	settings.autoStart = autoStart;
+	localStorage.setItem('settings', JSON.stringify(settings));
+}
+//****************** React state.settings *************************
+//****************** React state.settings *************************
 
-
-
-// EXAMPLE CODE
-//    { id: 1, name: 'javascript' },
-//    { id: 2, name: 'angular' },
-//    { id: 3, name: 'node' } ]
-
-//    localStorage.setItem( 'data', JSON.stringify(store) 
-//    And when you get it: let stored = JSON.parse(ocalStorage.getItem( data ))
-
-
-
-
-
-// let store = 
-// [ { 
-// 	   id: 0,
-// 	   name: 'react', 
-// 	   tabs: [ 
-// 		   {
-// 			   tabKey: 0,
-// 			   tabName: "learn React syntax",
-// 			   tabURL: "htp://www.react.com",
-// 			   ParentCategoryId: 1
-// 		   },
-// 		   {
-// 			   tabKey: 1,
-// 			   tabName: "videos on syntax",
-// 			   tabURL: "htp://www.xyyys.com",
-// 			   ParentCategoryId: 1
-// 		   },
-// 	   ]
-//    } 
-// ];
-
-
-   // const setStorageLocal = (categories) => {
-// 	chrome.storage.local.set({categories}, function() {
-// 		console.log('Value is set to ' + categories);
-// 	  });
-// }
-
-// function addCategory(categoryId, categoryName) {
-// 	let category = new Category(categoryId, categoryName);
-// 	categories.push(category);
-// 	setStorageLocal(categories);
-// }
-
-// const categoryCreatorSaveButton = () => {
-// 	var randomIdNumber = randomNumber()
-//     var catName = document.getElementById("myText").value;
-//     addCategory(randomIdNumber, catName);
-// }
-
-
-
-// const getStorageLocal = () => {
-// 	chrome.storage.local.get(['categories'], function(result) {
-// 		console.log('Value currently is ' + result.key);
-// 	  });
-// }
 

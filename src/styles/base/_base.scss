@@ -6,6 +6,11 @@ body {
   background: #fafafa;
   font-family: 'Poppins', sans-serif;
   font-size: $m-size;
+  margin: 0;
+  padding: 0;
+  /* Added body dimensions */
+  height: 300px;
+  width: 250px;
 }
 
 div {

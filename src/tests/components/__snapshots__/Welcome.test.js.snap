@@ -6,10 +6,10 @@ exports[`should render Welcome correctly 1`] = `
   id="welcome"
 >
   <h1>
-    Welcome to Chingu Tab!
+    Welcome to Chingu MasterTab!
   </h1>
   <p>
-    Chingu Tab will help you organize your favorite pages into categories for easy access.
+    Chingu MasterTab will help you organize your favorite pages into categories for easy access.
   </p>
   <ol
     className="ol-decimal"
@@ -24,11 +24,5 @@ exports[`should render Welcome correctly 1`] = `
       When you visit a web page you'd like to add, right-click and add it to a category
     </li>
   </ol>
-  <p>
-    You can customize your experience from the Settings menu.
-  </p>
-  <p>
-    To get started, create your first category!
-  </p>
 </div>
 `;

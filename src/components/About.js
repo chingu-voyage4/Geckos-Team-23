@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 
-class About extends Component{
-  render(){
-    return (
+const About = () => (
       <div id="about" className="about">
-        <h1>Chingu Tab version 1.0</h1>
+        <h1>Chingu MasterTab version 1.0</h1>
 
         <p>
         This project began when three people decided to level up their coding skills and join the 
@@ -39,7 +37,5 @@ class About extends Component{
         <p>Thank you, from Emmie, LaQuita and Roudy.  I hope you'll join us at Chingu Cohorts!</p>
       </div>
     );
-  }
-}
 
 export default About;

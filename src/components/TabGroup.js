@@ -1,91 +1,56 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-  const getTabGroup = ( category ) => {
-    if (category === 'React') {
-      return [
-        {
-          tabKey: 1,
-          categoryKey: 1,
-          tabName: "My Favorite React Tutorial",
-          tabURL: "https://www.somedomain.com"
-        },
-        {
-          tabKey: 2,
-          categoryKey: 1,
-          tabName: "My Second Favorite React Tutorial",
-          tabURL: "https://www.somedomain2.com"
-        },
-        {
-          tabKey: 3,
-          categoryKey: 1,
-          tabName: "The Best React Tutorial Ever",
-          tabURL: "https://www.somedomain2.com"
-        },
-      ];
-    }
-    else if(category === 'JavaScript') {
-      return [
-        {
-          tabKey: 3,
-          categoryKey: 2,
-          tabName: "My Favorite JavaScript Tutorial",
-          tabURL: "https://www.somedomain3.com"
-        },
-        {
-          tabKey: 4,
-          categoryKey: 2,
-          tabName: "My Second Favorite JavaScript Tutorial",
-          tabURL: "https://www.somedomain4.com"
-        }
-      ];
-    }
-    else {
-        return [];
-    }
-  }
-
 class TabGroup extends Component {
   constructor(props){
     super(props);
 
-    this.sortTabs = this.sortTabs.bind(this);
     this.openAllTabs = this.openAllTabs.bind(this);
     this.deleteAllTabs = this.deleteAllTabs.bind(this);
     this.deleteThisTab = this.deleteThisTab.bind(this);
+    this.getCategoryName = this.getCategoryName.bind(this);
   }
-
-  sortTabs = () => (
-    console.log("sortTabs")
-  );
 
   openAllTabs = () => (
     console.log("openAllTabs")
   );
 
-  deleteAllTabs = () => (
-    console.log("deleteAllTabs")
-  );
+  deleteThisTab = (e) => {
+    console.log("deleteThisTab");
+    e.preventDefault();
+    let id = e.target.id;
+    let name = e.target.name;
+    console.log("target: ", e.target);
+    console.log("id: ", id);
+    this.props.deleteTab(id, name);
+  };
 
-  deleteThisTab = () => (
-    console.log("deleteThisTab")
-  );
+  deleteAllTabs = () => {
+    console.log("deleteAllTabs");
+    let categoryName = this.props.match.params.categoryName;
+    this.props.deleteTabGroup(categoryName);    
+  };
+
+  getCategoryName = () => {
+    return 
+  }
 
   render() {
-    let category = this.props.match.params.categoryName;
-    let tabs = getTabGroup(category);
+    let categoryName = this.props.match.params.categoryName;
+    console.log("tabGroup render - categoryName: ", categoryName);
+    let tabs = this.props.getTabGroup(categoryName);
+    console.log("tabGroup render - tabs: ", tabs);
     return(
       <div id="tab-group" className="main">
         <div className="row">
           <div className="btn-group btn-center">
-            <button id='clickableSortArrow' onClick={this.sortTabs} className="button"><i className="fas fa-sort"></i></button>
             <button id='openAllTabs' onClick={this.openAllTabs} className="button">Open all</button>
             <button id='openAllTabs' onClick={this.deleteAllTabs} className="button">Delete all</button>
           </div>
           <div className="clear">
               {
                 tabs.length === 0 ? (
-                  <p>You haven't added any pages to {category} yet.</p>
+                  <p>You haven't added any pages to {categoryName} yet.</p>
                 ) : (
                 <ul className="ul-no-bullet tab-group">
                 {
