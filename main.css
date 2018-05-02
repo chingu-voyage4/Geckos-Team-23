@@ -1,0 +1,32 @@
+.container {
+  padding: 2.5rem 1.5rem;
+  margin: 1rem;
+  height: 100vh;
+  width: 100vw;
+}
+
+nav {
+  background: rgb(255,141,78);
+  background: radial-gradient(circle, rgba(255,141,78,0.9983766233766234) 0%, rgba(148,148,233,1) 100%);
+}
+
+nav:hover {
+  background: rgba(148,148,233,1);
+}
+
+.navbar-brand {
+  margin: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+li {
+  list-style: none;
+}
+
+.delete-btn {
+  font-weight: bold;
+}
+
+
+

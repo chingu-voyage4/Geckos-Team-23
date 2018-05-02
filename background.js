@@ -1,3 +1,4 @@
+
 function generateRandomKey() {
   return '_' + Math.random().toString(36).substr(2, 9);
 };
@@ -49,6 +50,4 @@ let saveAllTabs = chrome.contextMenus.create({
   parentId: parent,
   onclick: getAllOpenWindows
 });
-
-
 

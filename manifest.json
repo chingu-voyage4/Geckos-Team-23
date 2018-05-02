@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
-  "name": "Chingu MasterTab",
+  "name": "MasterTab",
   "version": "0.7.0",
-  "description": "Chingu MasterTab",
+  "description": "MasterTab",
   "icons": {
-    "16": "Chingu-small.png",
-    "128": "Chingu.png"
+    "16": "MT-small.png",
+    "128": "MT.png"
   },
   "browser_action": {
-    "default_popup": "index.html",
+    "default_popup": "popup.html",
     "default_title": "MasterTab"
   },
   "background": {
